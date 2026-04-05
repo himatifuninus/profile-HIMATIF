@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 
-
 export default function Makrab() {
   const fadeUp = {
     hidden: { opacity: 0, y: 30 },
@@ -98,7 +97,7 @@ export default function Makrab() {
               <li className="ml-6">
                 <span className="absolute -left-[7px] w-3 h-3 bg-cyan-400 rounded-full"></span>
                 <time className="block text-sm text-cyan-300 mb-1">
-                  07 - 08 Februari 2026
+                  17 - 18 April 2026
                 </time>
                 <p className="font-semibold">Pelaksanaan</p>
               </li>
