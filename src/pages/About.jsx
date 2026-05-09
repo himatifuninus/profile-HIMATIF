@@ -62,7 +62,7 @@ const About = () => {
             viewport={{ once: true }}
             className="text-center md:text-left"
           >
-            <h2 className="text-2xl sm:text-3xl font-semibold text-cyan-100 mb-4 md:-ml-24 lg:-ml-56 mt-4 md:-mt-6">
+            <h2 className="text-2xl sm:text-3xl font-semibold text-white mb-4 md:-ml-24 lg:-ml-56 mt-4 md:-mt-6">
               Sejarah Himatif
             </h2>
             <p className="text-gray-700 text-sm sm:text-base leading-relaxed text-justify md:-ml-24 lg:-ml-56 mt-4 md:mt-8">
