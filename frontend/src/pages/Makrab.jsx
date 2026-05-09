@@ -9,7 +9,7 @@ export default function Makrab() {
   return (
     <section
       className="relative min-h-screen w-full bg-cover bg-center bg-no-repeat flex items-center"
-      style={{ backgroundImage: "url('/momen.jpeg')" }}
+      style={{ backgroundImage: "url('/Icc.jpeg')" }}
     >
       {/* OVERLAY */}
       <div className="absolute inset-0 bg-black/65"></div>

@@ -1,16 +1,11 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
 import {
   FaUser,
   FaIdCard,
-  FaEnvelope,
   FaPhone,
   FaUniversity,
-  FaHeartbeat,
-  FaExclamationTriangle,
 } from "react-icons/fa";
-import { supabase } from "../supabaseClient";
 
 const forbiddenWords = [
   "anjing",
@@ -34,18 +29,16 @@ const forbiddenWords = [
 
 const Register = () => {
   const [formData, setFormData] = useState({
-    nama: "",
+    namaTim: "",
+    namaAnggotaTim: "",
     nim: "",
-    email: "",
     phone: "",
     angkatan: "2025",
-    riwayat_penyakit: "",
-    alergi: "",
   });
 
   const [errors, setErrors] = useState({
-    nama: "",
-    email: "",
+    namaTim: "",
+    namaAnggotaTim: "",
   });
 
   const containsForbiddenWord = (text) => {
@@ -57,92 +50,84 @@ const Register = () => {
   const handleChange = (e) => {
     const { name, value } = e.target;
 
-    // validasi kata terlarang
-    if (name === "nama") {
+    if (name === "namaTim" || name === "namaAnggotaTim") {
       const found = containsForbiddenWord(value);
+
       setErrors((prev) => ({
         ...prev,
-        nama: found ? `Kata "${found}" tidak diperbolehkan` : "",
+        [name]: found
+          ? `Kata "${found}" tidak diperbolehkan`
+          : "",
       }));
     }
 
-    if (name === "email") {
-      const found = containsForbiddenWord(value);
-      setErrors((prev) => ({
-        ...prev,
-        email: found ? `Kata "${found}" tidak diperbolehkan` : "",
-      }));
-    }
-
-    setFormData({ ...formData, [name]: value });
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (errors.nama || errors.email) {
+    if (errors.namaTim || errors.namaAnggotaTim) {
       toast.error("Terdapat kata yang tidak diperbolehkan");
       return;
     }
 
-    const { error } = await supabase.from("registrations").insert([
-      {
-        nama: formData.nama,
-        nim: formData.nim,
-        email: formData.email,
-        phone: formData.phone,
-        angkatan: formData.angkatan,
-        riwayat_penyakit: formData.riwayat_penyakit || null,
-        alergi: formData.alergi || null,
-      },
-    ]);
-
-    if (error) {
-      toast.error("Gagal menyimpan data");
-      return;
-    }
+    console.log("Data Form:", formData);
 
     toast.success("Pendaftaran berhasil");
 
     setFormData({
-      nama: "",
+      namaTim: "",
+      namaAnggotaTim: "",
       nim: "",
-      email: "",
       phone: "",
       angkatan: "2025",
-      riwayat_penyakit: "",
-      alergi: "",
     });
 
-    setErrors({ nama: "", email: "" });
+    setErrors({
+      namaTim: "",
+      namaAnggotaTim: "",
+    });
   };
 
   const fields = [
-    { name: "nama", label: "Nama Mahasiswa", icon: <FaUser />, type: "text" },
-    { name: "nim", label: "NIM", icon: <FaIdCard />, type: "text" },
-    { name: "email", label: "Email", icon: <FaEnvelope />, type: "email" },
-    { name: "phone", label: "No HP", icon: <FaPhone />, type: "tel" },
     {
-      name: "riwayat_penyakit",
-      label: "Riwayat Penyakit",
-      icon: <FaHeartbeat />,
+      name: "namaTim",
+      label: "Nama Tim",
+      icon: <FaUser />,
       type: "text",
     },
     {
-      name: "alergi",
-      label: "Alergi",
-      icon: <FaExclamationTriangle />,
+      name: "namaAnggotaTim",
+      label: "Nama Anggota Tim",
+      icon: <FaUser />,
       type: "text",
+    },
+    {
+      name: "nim",
+      label: "NIM",
+      icon: <FaIdCard />,
+      type: "text",
+    },
+    {
+      name: "phone",
+      label: "No HP",
+      icon: <FaPhone />,
+      type: "tel",
     },
   ];
 
   return (
-    <div className="min-h-screen w-screen flex justify-center items-center bg-gray-900 px-4">
+    <div className="min-h-screen w-screen flex justify-center items-center bg-gray-900 px-4"
+    style={{ backgroundImage: "url('/Icc.jpeg')" }}>
       <div className="w-full max-w-md bg-slate-800 border border-slate-600 rounded-md p-6 shadow-lg">
         <Toaster position="top-center" />
 
         <h1 className="text-3xl font-bold text-center text-white mb-10">
-          Daftar SEMDIKTI 2025
+          Daftar ICC & Hackathon
         </h1>
 
         <form onSubmit={handleSubmit}>
@@ -194,6 +179,7 @@ const Register = () => {
             <label className="text-white flex items-center gap-2 mb-1">
               <FaUniversity /> Angkatan
             </label>
+
             <input
               value="2025"
               readOnly
@@ -203,17 +189,13 @@ const Register = () => {
 
           <button
             type="submit"
-            disabled={errors.nama || errors.email}
+            disabled={
+              errors.namaTim || errors.namaAnggotaTim
+            }
             className="w-full bg-blue-600 hover:bg-blue-700 disabled:opacity-50 text-white font-bold py-3 rounded"
           >
             Daftar Sekarang
           </button>
-
-          <div className="text-center mt-4">
-            <Link to="/data-register" className="text-blue-300 text-sm">
-              Lihat mahasiswa terdaftar
-            </Link>
-          </div>
         </form>
       </div>
     </div>
