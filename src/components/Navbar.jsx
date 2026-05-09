@@ -166,7 +166,6 @@ export default function Navbar() {
   </NavLink>
 </motion.div>
 
-
         {/* <motion.div variants={itemVariants}>
           <NavLink to="/contact" className="block hover:text-gray-300 transition-colors">
             Contact

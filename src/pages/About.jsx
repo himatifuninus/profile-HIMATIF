@@ -16,7 +16,7 @@ const About = () => {
   return (
     <section className="bg-gray-800 text-gray-800">
       {/* Hero Section */}
-      <div className="relative bg-gradient-to-r from-slate-700 via-slate-600 text-white py-20 sm:py-24 px-4 sm:px-8 md:px-16 overflow-hidden">
+      <div className="relative bg-gradient-to-t from-slate-700 via-slate-1000 text-white py-20 sm:py-24 px-4 sm:px-8 md:px-16 overflow-hidden">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
@@ -38,8 +38,8 @@ const About = () => {
         </motion.div>
       </div>
 
-      {/* Sejarah Perusahaan */}
-      <div className="relative bg-gradient-to-br from-slate-100 via-slate-200 to-cyan-100 py-12 sm:py-20">
+      {/* Sejarah Himatif */}
+      <div className="relative bg-gradient-to-t from-slate-100 via-slate-300 to-slate-700 py-12 sm:py-30">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-12 grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10 items-center">
           <motion.div
             className="relative group flex justify-center md:justify-start"
@@ -78,7 +78,7 @@ const About = () => {
       </div>
 
       {/* Visi dan Misi Section */}
-      <div className="relative py-20 sm:py-28 md:py-32 px-4 sm:px-6 md:px-12 bg-gradient-to-br from-slate-700 via-slate-600 to-cyan-700 overflow-hidden">
+      <div className="relative py-10 sm:py-10 md:py-32 px-4 sm:px-6 md:px-12 bg-gradient-to-t from-slate-700 via-slate-600 to-slate-100 overflow-hidden">
         <div className="absolute inset-0 backdrop-blur-sm bg-white/5"></div>
 
         <div className="relative z-10 max-w-6xl mx-auto">

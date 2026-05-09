@@ -227,7 +227,7 @@ const Home = () => {
         </section>
 
         {/* Layanan Section */}
-        <section className="py-20 bg-slate-800">
+        <section className="py-20 bg-slate-800 bg-gradient-to-b from-slate-900 to-slate-800">
           <div className="container mx-auto px-6 lg:px-8">
             {/* Header */}
             <motion.div
@@ -352,7 +352,7 @@ const Home = () => {
         </section>
 
         {/* Why Choose Us Section */}
-        <section className="py-20 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
+        <section className="py-20 bg-gradient-to-b from-slate-800 via-slate-900 to-slate-900">
           <div className="container mx-auto px-6 lg:px-8">
             <motion.div
               className="text-center mb-16"
@@ -411,89 +411,89 @@ const Home = () => {
 
               {/* HIMATIF24 */}
               <Link to="/angkatan-2425" className="block">
-              <motion.div
-                variants={scaleIn}
-                whileHover={{ y: -8, scale: 1.03 }}
-                className="bg-slate-800/30 backdrop-blur-xl border border-slate-700/50 
+                <motion.div
+                  variants={scaleIn}
+                  whileHover={{ y: -8, scale: 1.03 }}
+                  className="bg-slate-800/30 backdrop-blur-xl border border-slate-700/50 
   rounded-xl transition-all duration-300 
   hover:shadow-2xl hover:shadow-cyan-500/30"
-              >
-                <div className="rounded-xl overflow-hidden">
-                  {/* FOTO */}
-                  <div className="bg-slate-900">
-                    <img
-                      src="Himatif24.jpeg"
-                      alt="HIMATIF 2024"
-                      className="w-full h-auto object-contain"
-                    />
-                  </div>
+                >
+                  <div className="rounded-xl overflow-hidden">
+                    {/* FOTO */}
+                    <div className="bg-slate-900">
+                      <img
+                        src="Himatif24.jpeg"
+                        alt="HIMATIF 2024"
+                        className="w-full h-auto object-contain"
+                      />
+                    </div>
 
-                  {/* NAMA */}
-                  <div className="py-4 text-center">
-                    <h3 className="font-semibold text-white text-lg tracking-wide">
-                      HIMATIF 2024 - 2025
-                    </h3>
+                    {/* NAMA */}
+                    <div className="py-4 text-center">
+                      <h3 className="font-semibold text-white text-lg tracking-wide">
+                        HIMATIF 2024 - 2025
+                      </h3>
+                    </div>
                   </div>
-                </div>
-              </motion.div>
+                </motion.div>
               </Link>
 
               {/* HIMATIF23 */}
               <Link to="/angkatan-2324" className="block">
-              <motion.div
-                variants={scaleIn}
-                whileHover={{ y: -8, scale: 1.03 }}
-                className="bg-slate-800/30 backdrop-blur-xl border border-slate-700/50 
+                <motion.div
+                  variants={scaleIn}
+                  whileHover={{ y: -8, scale: 1.03 }}
+                  className="bg-slate-800/30 backdrop-blur-xl border border-slate-700/50 
   rounded-xl transition-all duration-300 
   hover:shadow-2xl hover:shadow-cyan-500/30"
-              >
-                <div className="rounded-xl overflow-hidden">
-                  {/* FOTO */}
-                  <div className="bg-slate-900">
-                    <img
-                      src="himatif23.jpeg"
-                      alt="HIMATIF 2023"
-                      className="w-full h-auto object-contain"
-                    />
-                  </div>
+                >
+                  <div className="rounded-xl overflow-hidden">
+                    {/* FOTO */}
+                    <div className="bg-slate-900">
+                      <img
+                        src="himatif23.jpeg"
+                        alt="HIMATIF 2023"
+                        className="w-full h-auto object-contain"
+                      />
+                    </div>
 
-                  {/* NAMA */}
-                  <div className="py-4 text-center">
-                    <h3 className="font-semibold text-white text-lg tracking-wide">
-                      HIMATIF 2023 - 2024
-                    </h3>
+                    {/* NAMA */}
+                    <div className="py-4 text-center">
+                      <h3 className="font-semibold text-white text-lg tracking-wide">
+                        HIMATIF 2023 - 2024
+                      </h3>
+                    </div>
                   </div>
-                </div>
-              </motion.div>
+                </motion.div>
               </Link>
 
               {/* HIMATIF22 */}
               <Link to="/angkatan-2223" className="block">
-              <motion.div
-                variants={scaleIn}
-                whileHover={{ y: -8, scale: 1.03 }}
-                className="bg-slate-800/30 backdrop-blur-xl border border-slate-700/50 
+                <motion.div
+                  variants={scaleIn}
+                  whileHover={{ y: -8, scale: 1.03 }}
+                  className="bg-slate-800/30 backdrop-blur-xl border border-slate-700/50 
   rounded-xl transition-all duration-300 
   hover:shadow-2xl hover:shadow-cyan-500/30"
-              >
-                <div className="rounded-xl overflow-hidden">
-                  {/* FOTO */}
-                  <div className="bg-slate-900">
-                    <img
-                      src="Himatif22.jpg"
-                      alt="HIMATIF 2022"
-                      className="w-full h-auto object-contain"
-                    />
-                  </div>
+                >
+                  <div className="rounded-xl overflow-hidden">
+                    {/* FOTO */}
+                    <div className="bg-slate-900">
+                      <img
+                        src="Himatif22.jpg"
+                        alt="HIMATIF 2022"
+                        className="w-full h-auto object-contain"
+                      />
+                    </div>
 
-                  {/* NAMA */}
-                  <div className="py-4 text-center">
-                    <h3 className="font-semibold text-white text-lg tracking-wide">
-                      HIMATIF 2022 - 2023
-                    </h3>
+                    {/* NAMA */}
+                    <div className="py-4 text-center">
+                      <h3 className="font-semibold text-white text-lg tracking-wide">
+                        HIMATIF 2022 - 2023
+                      </h3>
+                    </div>
                   </div>
-                </div>
-              </motion.div>
+                </motion.div>
               </Link>
             </motion.div>
           </div>
