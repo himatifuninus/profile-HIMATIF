@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { Monitor, Settings, Handshake } from "lucide-react";
+import { Monitor, Settings, Handshake, Users, Calendar, Trophy, ArrowRight, ChevronDown } from "lucide-react";
 import { ReactTyped } from "react-typed";
 
 const Home = () => {
@@ -51,6 +51,13 @@ const Home = () => {
     visible: { opacity: 1, scale: 1, transition: { duration: 0.5, ease: "easeOut" } },
     exit: { opacity: 0, scale: 0.8, transition: { duration: 0.3, ease: "easeIn" } },
   };
+
+  // Stats data
+  const stats = [
+    { icon: Users, value: "200+", label: "Anggota Aktif", color: "violet" },
+    { icon: Calendar, value: "4+", label: "Tahun Berdiri", color: "fuchsia" },
+    { icon: Trophy, value: "20+", label: "Program Kerja", color: "cyan" },
+  ];
 
   return (
     <AnimatePresence mode="wait">
@@ -224,22 +231,49 @@ const Home = () => {
           </div>
 
           {/* Main Content */}
-          <div className="relative z-[2] min-h-screen flex items-center w-full">
+          <div className="relative z-[2] min-h-screen flex items-center justify-center w-full">
             <div className="container mx-auto px-6 lg:px-8">
-              <div className="grid lg:grid-cols-2 gap-12 items-center">
+
+              {/* CENTER CONTENT */}
+              <div className="flex justify-center items-center text-center">
                 <motion.div
-                  className="space-y-8"
+                  className="space-y-8 max-w-5xl mx-auto flex flex-col items-center"
                   initial="hidden"
                   animate="visible"
                   exit="exit"
                   variants={staggerContainer}
                 >
-                  <motion.div className="flex items-center space-x-3" variants={fadeInLeft}>
-                    <span className="text-2xl font-bold text-white/90">Selamat Datang Di</span>
+
+                  {/* BADGE */}
+                  {/* <motion.div variants={fadeInLeft}>
+                    <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-violet-500/30 bg-violet-500/10 text-violet-300 text-sm font-medium tracking-wide">
+                      <span className="w-1.5 h-1.5 rounded-full bg-violet-400 animate-pulse" />
+                      Universitas Islam Nusantara
+                    </span>
+                  </motion.div> */}
+
+                  {/* SUBTITLE */}
+                    <motion.div
+                    className="flex items-center justify-center mb-2 mt-24  "
+                    variants={fadeInLeft}
+                  >
+                    <span className="text-xl md:text-2xl font-bold text-white/90 tracking-wide leading-none">
+                      Selamat Datang Di
+                    </span>
                   </motion.div>
 
+                  {/* TITLE */}
                   <motion.h1
-                    className="text-5xl lg:text-7xl font-bold text-white leading-tight -translate-y-8"
+                    className="
+                      text-5xl
+                      md:text-6xl
+                      lg:text-7xl
+                      font-extrabold
+                      text-white
+                      leading-tight
+                      text-center
+                      -translate-y-3
+                    "
                     variants={fadeInLeft}
                   >
                     Himpunan Mahasiswa{" "}
@@ -248,8 +282,21 @@ const Home = () => {
                     </span>
                   </motion.h1>
 
+                  {/* TYPED TEXT */}
                   <motion.div
-                    className="text-xl lg:text-2xl text-slate-300/80 h-16 flex items-center -translate-y-16"
+                    className="
+                      text-lg
+                      md:text-xl
+                      lg:text-2xl
+                      text-slate-300/80
+                      h-16
+                      flex
+                      items-center
+                      justify-center
+                      text-center
+                      max-w-3xl
+                      -translate-y-4
+                    "
                     variants={fadeInLeft}
                   >
                     <ReactTyped
@@ -267,6 +314,84 @@ const Home = () => {
                       cursorChar="|"
                     />
                   </motion.div>
+
+                  {/* ── CTA BUTTONS ── */}
+                  <motion.div
+                    className="flex flex-col sm:flex-row items-center gap-4 -translate-y-2"
+                    variants={fadeInUp}
+                  >
+                    {/* Primary CTA */}
+                    <Link to="/about">
+                      <motion.button
+                        className="group relative flex items-center gap-2 px-8 py-3.5 rounded-xl font-semibold text-white overflow-hidden"
+                        style={{
+                          background: "linear-gradient(135deg, rgba(139,92,246,0.9) 0%, rgba(217,70,239,0.9) 50%, rgba(14,116,144,0.8) 100%)",
+                          boxShadow: "0 0 30px rgba(139,92,246,0.4), 0 0 60px rgba(139,92,246,0.15)",
+                        }}
+                        whileHover={{ scale: 1.05, boxShadow: "0 0 40px rgba(139,92,246,0.6), 0 0 80px rgba(139,92,246,0.25)" }}
+                        whileTap={{ scale: 0.97 }}
+                        transition={{ duration: 0.2 }}
+                      >
+                        {/* Shimmer effect */}
+                        <motion.div
+                          className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-12"
+                          initial={{ x: "-100%" }}
+                          whileHover={{ x: "200%" }}
+                          transition={{ duration: 0.6, ease: "easeInOut" }}
+                        />
+                        <span>Kenali Kami</span>
+                        <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
+                      </motion.button>
+                    </Link>
+
+                    {/* Secondary CTA */}
+                    <Link to="/program">
+                      <motion.button
+                        className="group flex items-center gap-2 px-8 py-3.5 rounded-xl font-semibold text-white/90 border border-white/20 bg-white/5 backdrop-blur-sm hover:bg-white/10 hover:border-white/30 transition-all duration-300"
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.97 }}
+                        transition={{ duration: 0.2 }}
+                      >
+                        <span>Lihat Program</span>
+                        <ChevronDown className="w-4 h-4 group-hover:translate-y-0.5 transition-transform duration-200" />
+                      </motion.button>
+                    </Link>
+                  </motion.div>
+
+                  {/* ── STATS ROW ── */}
+                  <motion.div
+                    className="flex flex-wrap justify-center gap-6 md:gap-10 pt-4"
+                    variants={fadeInUp}
+                  >
+                    {stats.map((stat, i) => (
+                      <motion.div
+                        key={i}
+                        className="flex items-center gap-3 group"
+                        whileHover={{ y: -2 }}
+                        transition={{ duration: 0.2 }}
+                      >
+                        <div
+                          className={`w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 ${
+                            stat.color === "violet"
+                              ? "bg-violet-500/20 text-violet-400"
+                              : stat.color === "fuchsia"
+                              ? "bg-fuchsia-500/20 text-fuchsia-400"
+                              : "bg-cyan-500/20 text-cyan-400"
+                          }`}
+                        >
+                          <stat.icon className="w-5 h-5" />
+                        </div>
+                        <div className="text-left">
+                          <p className="text-xl font-extrabold text-white leading-none">{stat.value}</p>
+                          <p className="text-xs text-slate-400 mt-0.5">{stat.label}</p>
+                        </div>
+                        {i < stats.length - 1 && (
+                          <div className="hidden md:block w-px h-8 bg-white/10 ml-4" />
+                        )}
+                      </motion.div>
+                    ))}
+                  </motion.div>
+
                 </motion.div>
               </div>
             </div>
