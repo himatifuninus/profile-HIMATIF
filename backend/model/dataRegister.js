@@ -1,0 +1,47 @@
+import { DataTypes } from "sequelize";
+import sequelize from "../config/database";
+
+const dataRegister = sequelize.define(
+  "dataRegister",
+  {
+    no: {
+      type: DataTypes.INTEGER,
+      autoIncrement: true,
+      
+    },
+    
+    nama: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique:true, 
+      primaryKey: true, 
+    },
+  
+    firstName: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+
+    lastName: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+
+    email: {
+      type: DataTypes.STRING,
+      allowNull: true,
+      unique: true,
+    },
+
+    password: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+  },
+  {
+    tableName: "Admins",
+    timestamps: true,
+  }
+);
+
+export default Admin;
