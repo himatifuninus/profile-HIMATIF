@@ -1,11 +1,7 @@
 import React, { useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
-import {
-  FaUser,
-  FaIdCard,
-  FaPhone,
-  FaUniversity,
-} from "react-icons/fa";
+import { FaUser, FaIdCard, FaPhone, FaUniversity } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 const forbiddenWords = [
   "anjing",
@@ -28,6 +24,8 @@ const forbiddenWords = [
 ];
 
 const Register = () => {
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     namaTim: "",
     namaAnggotaTim: "",
@@ -42,9 +40,7 @@ const Register = () => {
   });
 
   const containsForbiddenWord = (text) => {
-    return forbiddenWords.find((word) =>
-      text.toLowerCase().includes(word)
-    );
+    return forbiddenWords.find((word) => text.toLowerCase().includes(word));
   };
 
   const handleChange = (e) => {
@@ -55,9 +51,7 @@ const Register = () => {
 
       setErrors((prev) => ({
         ...prev,
-        [name]: found
-          ? `Kata "${found}" tidak diperbolehkan`
-          : "",
+        [name]: found ? `Kata "${found}" tidak diperbolehkan` : "",
       }));
     }
 
@@ -78,6 +72,10 @@ const Register = () => {
     console.log("Data Form:", formData);
 
     toast.success("Pendaftaran berhasil");
+
+    setTimeout(() => {
+      navigate("/congratulations");
+    }, 1500);
 
     setFormData({
       namaTim: "",
@@ -121,8 +119,10 @@ const Register = () => {
   ];
 
   return (
-    <div className="min-h-screen w-screen flex justify-center items-center bg-gray-900 px-4"
-    style={{ backgroundImage: "url('/Icc.jpeg')" }}>
+    <div
+      className="min-h-screen w-screen flex justify-center items-center bg-gray-900 px-4"
+      style={{ backgroundImage: "url('/Icc.jpeg')" }}
+    >
       <div className="w-full max-w-md bg-slate-800 border border-slate-600 rounded-md p-6 shadow-lg">
         <Toaster position="top-center" />
 
@@ -168,9 +168,7 @@ const Register = () => {
               </span>
 
               {errors[name] && (
-                <p className="text-red-500 text-xs mt-1">
-                  {errors[name]}
-                </p>
+                <p className="text-red-500 text-xs mt-1">{errors[name]}</p>
               )}
             </div>
           ))}
@@ -189,9 +187,7 @@ const Register = () => {
 
           <button
             type="submit"
-            disabled={
-              errors.namaTim || errors.namaAnggotaTim
-            }
+            disabled={errors.namaTim || errors.namaAnggotaTim}
             className="w-full bg-blue-600 hover:bg-blue-700 disabled:opacity-50 text-white font-bold py-3 rounded"
           >
             Daftar Sekarang

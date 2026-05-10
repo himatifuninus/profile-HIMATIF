@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { HiArrowNarrowLeft } from "react-icons/hi";
 import { FaInstagram, FaGithub, FaWhatsapp } from "react-icons/fa";
 import { Pagination, Stack } from "@mui/material";
-import { supabase } from "../supabaseClient";
 
 const DataRegister = () => {
   const [data, setData] = useState([]);

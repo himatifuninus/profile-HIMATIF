@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { FiArrowUpRight } from "react-icons/fi";
 
 export default function Makrab() {
   const fadeUp = {
@@ -8,7 +9,7 @@ export default function Makrab() {
 
   return (
     <section
-      className="relative min-h-screen w-full bg-cover bg-center bg-no-repeat flex items-center"
+      className="relative min-h-screen w-full bg-cover bg-center bg-no-repeat flex items-center pb-10"
       style={{ backgroundImage: "url('/Icc.jpeg')" }}
     >
       {/* OVERLAY */}
@@ -125,20 +126,53 @@ export default function Makrab() {
           </motion.div>
         </div>
 
-        {/* BUTTON DAFTAR */}
+        {/* BUTTON & LINK */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="mt-16 text-center"
-        >
+          className="mt-16 flex flex-col md:flex-row items-center justify-center gap-4"
+          >
+          {/* BUTTON */}
           <a
             href="/register"
-            className="inline-block bg-[#121B2F] hover:bg-[#000080] text-white
-            font-semibold px-10 py-4 rounded-full transition-all duration-300
-            hover:scale-105 hover:shadow-xl hover:shadow-cyan-500/40 -translate-y-10"
+            className="flex
+      items-center
+      justify-center
+      h-[56px]
+      px-10
+      bg-[#121B2F]
+      hover:bg-[#000080]
+      text-white
+      font-semibold
+      rounded-full
+      transition-all
+      duration-300
+      hover:scale-105
+      hover:shadow-xl
+      hover:shadow-cyan-500/40"
           >
             Daftar Sekarang
+          </a>
+
+          <a
+            href="https://drive.google.com/drive/folders/1BYMPweNf8nnCyP8Ax-mTuAT9oozjSx0L"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="
+            inline-flex
+            items-center
+            gap-0
+            ml-6
+            text-sm
+            text-gray-300
+            hover:text-white
+            transition-all
+            duration-300
+            hover:underline"
+          >
+            <span>Lihat Peraturan Lengkap</span>
+            <FiArrowUpRight className="text-[15px] translate-y-[2px]" />
           </a>
         </motion.div>
       </div>
