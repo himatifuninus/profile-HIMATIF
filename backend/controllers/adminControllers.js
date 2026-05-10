@@ -1,6 +1,8 @@
 import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
 import Admin from "../models/adminModel.js";
+import Team from "../models/teamModel.js";
+import Member from "../models/memberModel.js";
 
 export const loginAdmin = async (req, res) => {
   try {
@@ -19,6 +21,18 @@ export const loginAdmin = async (req, res) => {
     const token = jwt.sign({ username }, process.env.JWT_SECRET, { expiresIn: "1d" });
 
     res.json({ success: true, message: "Login berhasil", token });
+  } catch (error) {
+    res.status(500).json({ success: false, message: error.message });
+  }
+};
+
+export const getAllData = async (req, res) => {
+  try {
+    const teams = await Team.findAll({
+      include: [{ model: Member, as: "members" }],
+    });
+
+    res.json({ success: true, data: teams });
   } catch (error) {
     res.status(500).json({ success: false, message: error.message });
   }

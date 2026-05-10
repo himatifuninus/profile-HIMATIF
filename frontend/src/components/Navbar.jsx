@@ -97,10 +97,7 @@ export default function Navbar() {
             {/* ===============================
                 LOGO
             =============================== */}
-            <Link
-              to="/"
-              className="flex items-center gap-3 group"
-            >
+            <Link to="/" className="flex items-center gap-3 group">
               <img
                 src="/HIMATIF.png"
                 alt="Logo HIMATIF"
@@ -113,8 +110,7 @@ export default function Navbar() {
                 "
                 onError={(e) => {
                   e.target.onerror = null;
-                  e.target.src =
-                    "https://via.placeholder.com/64x64?text=H";
+                  e.target.src = "https://via.placeholder.com/64x64?text=H";
                 }}
               />
 
@@ -143,6 +139,23 @@ export default function Navbar() {
 
               <NavLink to="/makrab" className={navClass}>
                 PROGRAM
+              </NavLink>
+
+              <NavLink
+                to="/admin/login"
+                className="
+    border border-white
+    text-white
+    font-bold
+    px-4 py-2
+    rounded-lg
+    inline-block
+    transition-all duration-300
+    hover:bg-white
+    hover:text-black
+  "
+              >
+                LOGIN
               </NavLink>
             </div>
 

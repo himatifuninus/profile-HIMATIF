@@ -14,7 +14,7 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Makrab from "./pages/Makrab";
 import Register from "./pages/Register";
-// import DataRegister from "./pages/DataRegister";
+import Login from "./auth/Login"; // tambah ini
 
 import Angkatan2526 from "./detailStruktur/Angkatan2526";
 import Angkatan2425 from "./detailStruktur/Angkatan2425";
@@ -38,12 +38,14 @@ function AnimatedRoutes() {
           <Route path="/about" element={<About />} />
           <Route path="/makrab" element={<Makrab />} />
           <Route path="/register" element={<Register />} />
-          {/* <Route path="/data-register" element={<DataRegister />} /> */}
 
           <Route path="/angkatan-2526" element={<Angkatan2526 />} />
           <Route path="/angkatan-2425" element={<Angkatan2425 />} />
           <Route path="/angkatan-2324" element={<Angkatan2324 />} />
           <Route path="/angkatan-2223" element={<Angkatan2223 />} />
+
+          {/* Admin */}
+          <Route path="/admin/login" element={<Login />} />
 
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
