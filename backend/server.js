@@ -5,6 +5,7 @@ import chalk from "chalk";
 
 import sequelize from "./config/database.js";
 import registerRoutes from "./routes/registerRoutes.js";
+import adminRoutes from "./routes/adminRoutes.js";
 
 // CONFIG
 dotenv.config();
@@ -19,6 +20,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // ROUTES
 app.use("/api", registerRoutes);
+app.use("/api", adminRoutes);
 
 // TEST ROUTE
 app.get("/", (req, res) => {
