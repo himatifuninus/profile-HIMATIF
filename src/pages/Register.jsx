@@ -10,11 +10,25 @@ import {
   FaHeartbeat,
   FaExclamationTriangle,
 } from "react-icons/fa";
-import { supabase } from "../supabaseClient";
 
 const forbiddenWords = [
-  "anjing", "babi", "goblok", "tolol", "bangsat", "kontol", "memek",
-  "asu", "tol", "kon", "bodoh", "bego", "sia", "pepek", "jule", "fefek", "vevek",
+  "anjing",
+  "babi",
+  "goblok",
+  "tolol",
+  "bangsat",
+  "kontol",
+  "memek",
+  "asu",
+  "tol",
+  "kon",
+  "bodoh",
+  "bego",
+  "sia",
+  "pepek",
+  "jule",
+  "fefek",
+  "vevek",
 ];
 
 const Register = () => {
@@ -69,22 +83,25 @@ const Register = () => {
       return;
     }
 
-    const { error } = await supabase.from("registrations").insert([
-      {
-        nama: formData.nama,
-        nim: formData.nim,
-        email: formData.email,
-        phone: formData.phone,
-        angkatan: formData.angkatan,
-        riwayat_penyakit: formData.riwayat_penyakit || null,
-        alergi: formData.alergi || null,
-      },
-    ]);
-
-    if (error) {
-      toast.error("Gagal menyimpan data");
-      return;
-    }
+    // Simpan data ke localStorage sebagai pengganti Supabase
+    const existingData = JSON.parse(
+      localStorage.getItem("registrations") || "[]",
+    );
+    const newEntry = {
+      id: Date.now(),
+      nama: formData.nama,
+      nim: formData.nim,
+      email: formData.email,
+      phone: formData.phone,
+      angkatan: formData.angkatan,
+      riwayat_penyakit: formData.riwayat_penyakit || null,
+      alergi: formData.alergi || null,
+      created_at: new Date().toISOString(),
+    };
+    localStorage.setItem(
+      "registrations",
+      JSON.stringify([...existingData, newEntry]),
+    );
 
     toast.success("Pendaftaran berhasil");
 
@@ -100,7 +117,7 @@ const Register = () => {
 
     setErrors({ nama: "", email: "" });
 
-    // ✅ redirect ke halaman selamat setelah 1.5 detik
+    // Redirect ke halaman selamat setelah 1.5 detik
     setTimeout(() => {
       navigate("/selamat");
     }, 1500);
@@ -111,8 +128,18 @@ const Register = () => {
     { name: "nim", label: "NIM", icon: <FaIdCard />, type: "text" },
     { name: "email", label: "Email", icon: <FaEnvelope />, type: "email" },
     { name: "phone", label: "No HP", icon: <FaPhone />, type: "tel" },
-    { name: "riwayat_penyakit", label: "Riwayat Penyakit", icon: <FaHeartbeat />, type: "text" },
-    { name: "alergi", label: "Alergi", icon: <FaExclamationTriangle />, type: "text" },
+    {
+      name: "riwayat_penyakit",
+      label: "Riwayat Penyakit",
+      icon: <FaHeartbeat />,
+      type: "text",
+    },
+    {
+      name: "alergi",
+      label: "Alergi",
+      icon: <FaExclamationTriangle />,
+      type: "text",
+    },
   ];
 
   return (
@@ -144,7 +171,9 @@ const Register = () => {
               >
                 {label}
               </label>
-              <span className="absolute right-2 top-2 text-gray-400">{icon}</span>
+              <span className="absolute right-2 top-2 text-gray-400">
+                {icon}
+              </span>
               {errors[name] && (
                 <p className="text-red-500 text-xs mt-1">{errors[name]}</p>
               )}
