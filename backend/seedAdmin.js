@@ -5,10 +5,10 @@ import sequelize from "./config/database.js";
 const seedAdmin = async () => {
   await sequelize.sync();
 
-  const hashedPassword = await bcrypt.hash("admin123", 10);
+  const hashedPassword = await bcrypt.hash("himatifuninus24", 10);
 
   await AdminModel.create({
-    username: "admin",
+    username: "HIMATIF",
     password: hashedPassword,
   });
 
