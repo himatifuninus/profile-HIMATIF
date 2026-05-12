@@ -169,7 +169,7 @@ const Register = () => {
 
   return (
     <div
-      className="min-h-screen w-screen flex justify-center items-center bg-gray-900 px-4 py-10"
+      className="min-h-screen w-screen flex justify-center items-center bg-gray-900 px-4 py-10 pt-28"
       style={{ backgroundImage: "url('/Icc.jpeg')" }}
     >
       <div className="w-full max-w-md bg-slate-800 border border-slate-600 rounded-md p-6 shadow-lg">
