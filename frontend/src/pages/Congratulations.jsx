@@ -16,7 +16,7 @@ export default function Congratulations() {
       <div className="absolute inset-0 bg-black/65"></div>
 
       {/* CONTENT */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 mt-24 md:mt-20">
+      <div className="mx-auto bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl p-10 text-white">
         {/* JUDUL */}
         <motion.h2
           variants={fadeUp}
@@ -36,7 +36,16 @@ export default function Congratulations() {
           transition={{ duration: 0.8 }}
           className="text-gray-200 text-center max-w-3xl mx-auto mb-12"
         >
-          Selamat atas pencapaianmu! Teruslah berkarya dan jadilah yang terbaik.
+          Anda telah terdaftar menjadi bagian dari kami dalam program ICC & HACKATHON,
+          tetap semangat menjalani hidup karna jika kalian tidak memulai dari sekarang maka kalian akan tertinggal oleh rekan kalian yang lain,
+          langkah awalmu adalah proses dari awal kesuksesanmu,
+          maka dari itu berlomba lombalah kalian dalam hal kebaikan seperti dalam Q.S Al-Baqoroh ayat 148,
+          dan jangan lupa untuk terus menimba ilmu dari siapapun, 
+          karna seperti pepatah mengatakan "carilah ilmu sampai ke negri cina",
+          dan di dalam kata kata mutiara pun mengatakan "tuntutlah ilmu dari buaian hingga liang lahat".
+          <br />
+          <br />
+          <b>SEMANGAT DAN TETAP BERJUANG REKAN - REKAN</b>
         </motion.p>
 
         {/* BUTTON DAFTAR */}
