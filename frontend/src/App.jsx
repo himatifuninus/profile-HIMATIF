@@ -25,21 +25,25 @@ import Angkatan2425 from "./detailStruktur/Angkatan2425";
 import Angkatan2324 from "./detailStruktur/Angkatan2324";
 import Angkatan2223 from "./detailStruktur/Angkatan2223";
 
-// Proteksi admin route
+import Transition from "./transition/Transition";
+
+// PROTECTED ROUTE
 function ProtectedRoute({ children }) {
   const token = localStorage.getItem("adminToken");
   return token ? children : <Navigate to="/admin/login" replace />;
 }
 
-// ROUTES + ANIMASI
+// ROUTES
 function AnimatedRoutes() {
   const location = useLocation();
 
   return (
     <AnimatePresence mode="wait">
-      <Routes location={location} key={location.pathname}>
+      {/* TRANSITION HARUS DI SINI (bukan double Routes) */}
+      <Transition key={"transition-" + location.pathname} />
 
-        {/* PUBLIC ROUTES */}
+      <Routes location={location} key={location.pathname}>
+        {/* PUBLIC */}
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/makrab" element={<Makrab />} />
@@ -55,7 +59,6 @@ function AnimatedRoutes() {
 
         {/* ADMIN */}
         <Route path="/admin/login" element={<Login />} />
-
         <Route
           path="/admin/dashboard"
           element={
@@ -67,7 +70,6 @@ function AnimatedRoutes() {
 
         {/* fallback */}
         <Route path="*" element={<Navigate to="/" replace />} />
-
       </Routes>
     </AnimatePresence>
   );
