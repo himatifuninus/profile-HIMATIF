@@ -3,7 +3,6 @@ import { motion } from "framer-motion";
 
 const About = () => {
   const [activeTab, setActiveTab] = useState("vision");
-
   const listVariant = {
     hidden: { opacity: 0, y: -20 },
     visible: (i) => ({

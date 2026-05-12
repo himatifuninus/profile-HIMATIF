@@ -16,14 +16,21 @@ import Makrab from "./pages/Makrab";
 import Register from "./pages/Register";
 import DataRegister from "./pages/DataRegister";
 import Congratulations from "./pages/Congratulations";
+import DashboardAdmin from "./pages/DashboardAdmin";
 
-import Login from "./auth/Login"; // tambah ini
+import Login from "./auth/Login";
 import Angkatan2526 from "./detailStruktur/Angkatan2526";
 import Angkatan2425 from "./detailStruktur/Angkatan2425";
 import Angkatan2324 from "./detailStruktur/Angkatan2324";
 import Angkatan2223 from "./detailStruktur/Angkatan2223";
 
 import Transition from "./transition/Transition";
+
+// Proteksi route — kalau belum login, redirect ke /admin/login
+function ProtectedRoute({ children }) {
+  const token = localStorage.getItem("adminToken");
+  return token ? children : <Navigate to="/admin/login" replace />;
+}
 
 function AnimatedRoutes() {
   const location = useLocation();
@@ -32,6 +39,7 @@ function AnimatedRoutes() {
     <AnimatePresence mode="wait" initial={false}>
       <Routes location={location} key={location.pathname}>
 
+<<<<<<< HEAD
         <Route path="/" element={<><Transition /><Home /></>} />
         <Route path="/about" element={<><Transition /><About /></>} />
         <Route path="/makrab" element={<><Transition /><Makrab /></>} />
@@ -46,6 +54,31 @@ function AnimatedRoutes() {
 
         {/* Admin */}
         <Route path="/admin/login" element={<><Transition /><Login /></>} />
+=======
+        <Routes location={location} key={location.pathname}>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/makrab" element={<Makrab />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/data-register" element={<DataRegister />} />
+          <Route path="/congratulations" element={<Congratulations />} />
+
+          <Route path="/angkatan-2526" element={<Angkatan2526 />} />
+          <Route path="/angkatan-2425" element={<Angkatan2425 />} />
+          <Route path="/angkatan-2324" element={<Angkatan2324 />} />
+          <Route path="/angkatan-2223" element={<Angkatan2223 />} />
+
+          {/* Admin */}
+          <Route path="/admin/login" element={<Login />} />
+          <Route
+            path="/admin/dashboard"
+            element={
+              <ProtectedRoute>
+                <DashboardAdmin />
+              </ProtectedRoute>
+            }
+          />
+>>>>>>> 06c708319e28a893c54a6754b2d7343a6baf8f62
 
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
