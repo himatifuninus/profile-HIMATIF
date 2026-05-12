@@ -29,31 +29,27 @@ function AnimatedRoutes() {
   const location = useLocation();
 
   return (
-    <>
-      <AnimatePresence mode="wait">
-        <Transition key={"transition-" + location.pathname} />
+    <AnimatePresence mode="wait" initial={false}>
+      <Routes location={location} key={location.pathname}>
 
-        <Routes location={location} key={location.pathname}>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/makrab" element={<Makrab />} />
-          <Route path="/register" element={<Register />} />
+        <Route path="/" element={<><Transition /><Home /></>} />
+        <Route path="/about" element={<><Transition /><About /></>} />
+        <Route path="/makrab" element={<><Transition /><Makrab /></>} />
+        <Route path="/register" element={<><Transition /><Register /></>} />
+        <Route path="/data-register" element={<><Transition /><DataRegister /></>} />
+        <Route path="/congratulations" element={<><Transition /><Congratulations /></>} />
 
-          <Route path="/data-register" element={<DataRegister />} />
-          <Route path="/congratulations" element={<Congratulations />} />
-=
-          <Route path="/angkatan-2526" element={<Angkatan2526 />} />
-          <Route path="/angkatan-2425" element={<Angkatan2425 />} />
-          <Route path="/angkatan-2324" element={<Angkatan2324 />} />
-          <Route path="/angkatan-2223" element={<Angkatan2223 />} />
+        <Route path="/angkatan-2526" element={<><Transition /><Angkatan2526 /></>} />
+        <Route path="/angkatan-2425" element={<><Transition /><Angkatan2425 /></>} />
+        <Route path="/angkatan-2324" element={<><Transition /><Angkatan2324 /></>} />
+        <Route path="/angkatan-2223" element={<><Transition /><Angkatan2223 /></>} />
 
-          {/* Admin */}
-          <Route path="/admin/login" element={<Login />} />
+        {/* Admin */}
+        <Route path="/admin/login" element={<><Transition /><Login /></>} />
 
-          <Route path="*" element={<Navigate to="/" replace />} />
-        </Routes>
-      </AnimatePresence>
-    </>
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Routes>
+    </AnimatePresence>
   );
 }
 

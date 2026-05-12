@@ -14,9 +14,9 @@ const About = () => {
   };
 
   return (
-    <section className="bg-gray-800 text-gray-800">
+    <section className="bg-gray-800 text-gray-800 ">
       {/* Hero Section */}
-      <div className="relative bg-gradient-to-t from-slate-700 via-slate-1000 text-white py-20 sm:py-24 px-4 sm:px-8 md:px-16 overflow-hidden">
+      <div className="relative bg-gradient-to-t from-slate-700 via-slate-1000 text-white pt-32 pb-20 sm:pt-36 sm:pb-24 px-4 sm:px-8 md:px-16 overflow-hidden">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
