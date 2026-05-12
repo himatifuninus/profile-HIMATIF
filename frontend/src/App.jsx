@@ -36,25 +36,10 @@ function AnimatedRoutes() {
   const location = useLocation();
 
   return (
-    <AnimatePresence mode="wait" initial={false}>
-      <Routes location={location} key={location.pathname}>
+    <>
+      <AnimatePresence mode="wait">
+        <Transition key={"transition-" + location.pathname} />
 
-<<<<<<< HEAD
-        <Route path="/" element={<><Transition /><Home /></>} />
-        <Route path="/about" element={<><Transition /><About /></>} />
-        <Route path="/makrab" element={<><Transition /><Makrab /></>} />
-        <Route path="/register" element={<><Transition /><Register /></>} />
-        <Route path="/data-register" element={<><Transition /><DataRegister /></>} />
-        <Route path="/congratulations" element={<><Transition /><Congratulations /></>} />
-
-        <Route path="/angkatan-2526" element={<><Transition /><Angkatan2526 /></>} />
-        <Route path="/angkatan-2425" element={<><Transition /><Angkatan2425 /></>} />
-        <Route path="/angkatan-2324" element={<><Transition /><Angkatan2324 /></>} />
-        <Route path="/angkatan-2223" element={<><Transition /><Angkatan2223 /></>} />
-
-        {/* Admin */}
-        <Route path="/admin/login" element={<><Transition /><Login /></>} />
-=======
         <Routes location={location} key={location.pathname}>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
@@ -78,11 +63,11 @@ function AnimatedRoutes() {
               </ProtectedRoute>
             }
           />
->>>>>>> 06c708319e28a893c54a6754b2d7343a6baf8f62
 
-        <Route path="*" element={<Navigate to="/" replace />} />
-      </Routes>
-    </AnimatePresence>
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
+      </AnimatePresence>
+    </>
   );
 }
 
