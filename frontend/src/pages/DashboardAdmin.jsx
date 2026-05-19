@@ -27,7 +27,6 @@ export default function DashboardAdmin() {
 
   return (
     <div className="relative min-h-screen overflow-hidden bg-black flex items-center justify-center">
-
       {/* Tombol Logout */}
       <button
         onClick={handleLogout}
@@ -68,7 +67,8 @@ export default function DashboardAdmin() {
             height: "600px",
             top: "-100px",
             left: "-150px",
-            background: "radial-gradient(circle, rgba(88,28,220,0.25) 0%, transparent 70%)",
+            background:
+              "radial-gradient(circle, rgba(88,28,220,0.25) 0%, transparent 70%)",
             filter: "blur(40px)",
           }}
         />
@@ -79,7 +79,8 @@ export default function DashboardAdmin() {
             height: "500px",
             bottom: "-80px",
             right: "-100px",
-            background: "radial-gradient(circle, rgba(168,85,247,0.2) 0%, transparent 70%)",
+            background:
+              "radial-gradient(circle, rgba(168,85,247,0.2) 0%, transparent 70%)",
             filter: "blur(50px)",
           }}
         />
@@ -90,7 +91,8 @@ export default function DashboardAdmin() {
             height: "400px",
             top: "30%",
             left: "60%",
-            background: "radial-gradient(circle, rgba(236,72,153,0.12) 0%, transparent 70%)",
+            background:
+              "radial-gradient(circle, rgba(236,72,153,0.12) 0%, transparent 70%)",
             filter: "blur(60px)",
           }}
         />
@@ -149,7 +151,10 @@ export default function DashboardAdmin() {
       >
         <p
           className="text-sm font-semibold tracking-[0.35em] text-purple-400 uppercase mb-4"
-          style={{ opacity: visible ? 1 : 0, transition: "opacity 0.9s ease 0.2s" }}
+          style={{
+            opacity: visible ? 1 : 0,
+            transition: "opacity 0.9s ease 0.2s",
+          }}
         >
           Selamat Datang, Admin
         </p>
@@ -172,7 +177,8 @@ export default function DashboardAdmin() {
           className="font-black leading-tight"
           style={{
             fontSize: "clamp(2.4rem, 6vw, 5rem)",
-            background: "linear-gradient(90deg, #a855f7 0%, #ec4899 50%, #818cf8 100%)",
+            background:
+              "linear-gradient(90deg, #a855f7 0%, #ec4899 50%, #818cf8 100%)",
             WebkitBackgroundClip: "text",
             WebkitTextFillColor: "transparent",
             backgroundClip: "text",
@@ -189,7 +195,8 @@ export default function DashboardAdmin() {
           style={{
             width: "120px",
             height: "2px",
-            background: "linear-gradient(90deg, transparent, #a855f7, #ec4899, transparent)",
+            background:
+              "linear-gradient(90deg, transparent, #a855f7, #ec4899, transparent)",
             opacity: visible ? 0.85 : 0,
             transition: "opacity 0.9s ease 0.65s",
           }}
@@ -197,7 +204,10 @@ export default function DashboardAdmin() {
 
         <p
           className="text-base text-gray-400 tracking-wide"
-          style={{ opacity: visible ? 1 : 0, transition: "opacity 0.9s ease 0.75s" }}
+          style={{
+            opacity: visible ? 1 : 0,
+            transition: "opacity 0.9s ease 0.75s",
+          }}
         >
           Panel Admin &mdash; Kelola organisasi dengan mudah &amp; efisien
         </p>
