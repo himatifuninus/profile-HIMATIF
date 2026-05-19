@@ -6,7 +6,7 @@ import {
   useLocation,
 } from "react-router-dom";
 
-import { AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 
 import Navbar from "./components/Navbar";
 
@@ -17,6 +17,7 @@ import Register from "./pages/Register";
 import DataRegister from "./pages/DataRegister";
 import Congratulations from "./pages/Congratulations";
 import DashboardAdmin from "./pages/DashboardAdmin";
+import Proker from "./pages/Proker";
 
 import Login from "./auth/Login";
 
@@ -25,12 +26,29 @@ import Angkatan2425 from "./detailStruktur/Angkatan2425";
 import Angkatan2324 from "./detailStruktur/Angkatan2324";
 import Angkatan2223 from "./detailStruktur/Angkatan2223";
 
-import Transition from "./transition/Transition";
 
 // PROTECTED ROUTE
 function ProtectedRoute({ children }) {
   const token = localStorage.getItem("adminToken");
+
   return token ? children : <Navigate to="/admin/login" replace />;
+}
+
+// PAGE TRANSITION WRAPPER
+function PageTransition({ children }) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -20 }}
+      transition={{
+        duration: 0.4,
+        ease: "easeInOut",
+      }}
+    >
+      {children}
+    </motion.div>
+  );
 }
 
 // ROUTES
@@ -39,36 +57,129 @@ function AnimatedRoutes() {
 
   return (
     <AnimatePresence mode="wait">
-      {/* TRANSITION HARUS DI SINI (bukan double Routes) */}
-      <Transition key={"transition-" + location.pathname} />
-
       <Routes location={location} key={location.pathname}>
         {/* PUBLIC */}
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/makrab" element={<Makrab />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/data-register" element={<DataRegister />} />
-        <Route path="/congratulations" element={<Congratulations />} />
+        <Route
+          path="/"
+          element={
+            <PageTransition>
+              <Home />
+            </PageTransition>
+          }
+        />
+
+        <Route
+          path="/about"
+          element={
+            <PageTransition>
+              <About />
+            </PageTransition>
+          }
+        />
+
+        <Route
+          path="/proker"
+          element={
+            <PageTransition>
+              <Proker />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/makrab"
+          element={
+            <PageTransition>
+              <Makrab />
+            </PageTransition>
+          }
+        />
+
+        <Route
+          path="/register"
+          element={
+            <PageTransition>
+              <Register />
+            </PageTransition>
+          }
+        />
+
+        <Route
+          path="/data-register"
+          element={
+            <PageTransition>
+              <DataRegister />
+            </PageTransition>
+          }
+        />
+
+        <Route
+          path="/congratulations"
+          element={
+            <PageTransition>
+              <Congratulations />
+            </PageTransition>
+          }
+        />
 
         {/* STRUKTUR */}
-        <Route path="/angkatan-2526" element={<Angkatan2526 />} />
-        <Route path="/angkatan-2425" element={<Angkatan2425 />} />
-        <Route path="/angkatan-2324" element={<Angkatan2324 />} />
-        <Route path="/angkatan-2223" element={<Angkatan2223 />} />
+        <Route
+          path="/angkatan-2526"
+          element={
+            <PageTransition>
+              <Angkatan2526 />
+            </PageTransition>
+          }
+        />
+
+        <Route
+          path="/angkatan-2425"
+          element={
+            <PageTransition>
+              <Angkatan2425 />
+            </PageTransition>
+          }
+        />
+
+        <Route
+          path="/angkatan-2324"
+          element={
+            <PageTransition>
+              <Angkatan2324 />
+            </PageTransition>
+          }
+        />
+
+        <Route
+          path="/angkatan-2223"
+          element={
+            <PageTransition>
+              <Angkatan2223 />
+            </PageTransition>
+          }
+        />
 
         {/* ADMIN */}
-        <Route path="/admin/login" element={<Login />} />
+        <Route
+          path="/admin/login"
+          element={
+            <PageTransition>
+              <Login />
+            </PageTransition>
+          }
+        />
+
         <Route
           path="/admin/dashboard"
           element={
             <ProtectedRoute>
-              <DashboardAdmin />
+              <PageTransition>
+                <DashboardAdmin />
+              </PageTransition>
             </ProtectedRoute>
           }
         />
 
-        {/* fallback */}
+        {/* FALLBACK */}
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </AnimatePresence>

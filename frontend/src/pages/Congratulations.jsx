@@ -39,7 +39,7 @@ export default function Congratulations() {
           Anda telah terdaftar menjadi bagian dari kami dalam program ICC & HACKATHON,
           tetap semangat menjalani hidup karna jika kalian tidak memulai dari sekarang maka kalian akan tertinggal oleh rekan kalian yang lain,
           langkah awalmu adalah proses dari awal kesuksesanmu,
-          maka dari itu berlomba lombalah kalian dalam hal kebaikan seperti dalam Q.S Al-Baqoroh ayat 148,
+          maka dari itu berlomba lombalah kalian dalam hal kebaikan seperti dalam <b>Q. S Al-Baqoroh ayat 148</b>,
           dan jangan lupa untuk terus menimba ilmu dari siapapun, 
           karna seperti pepatah mengatakan "carilah ilmu sampai ke negri cina",
           dan di dalam kata kata mutiara pun mengatakan "tuntutlah ilmu dari buaian hingga liang lahat".

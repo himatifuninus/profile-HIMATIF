@@ -423,7 +423,7 @@ const Home = () => {
                   </Link>
 
                   {/* Secondary CTA */}
-                  <Link to="/program">
+                  <Link to="/proker">
                     <motion.button
                       className="group flex items-center gap-2 px-8 py-3.5 rounded-xl font-semibold text-white/90 border border-white/20 bg-white/5 backdrop-blur-sm hover:bg-white/10 hover:border-white/30 transition-all duration-300"
                       whileHover={{ scale: 1.05 }}
