@@ -12,6 +12,7 @@ import {
   ChevronDown,
 } from "lucide-react";
 import { ReactTyped } from "react-typed";
+import LiquidEther from "@/components/LiquidEther";
 
 const Home = () => {
   const cursorGlowRef = useRef(null);
@@ -117,25 +118,28 @@ const Home = () => {
         {/* ── Animated Mesh Gradient Background ── */}
         <div className="absolute inset-0 z-0 bg-[#080412] overflow-hidden">
           {/* Cursor Glow Layer 1 - inti asap, cepat (ungu) */}
-          <div
-            ref={cursorGlowRef}
-            className="pointer-events-none fixed z-50"
-            style={{
-              width: "320px",
-              height: "320px",
-              borderRadius: "50%",
-              background: `radial-gradient(circle, 
-                rgba(34,211,238,0.38) 0%, 
-                rgba(34,211,238,0.20) 30%, 
-                rgba(6,182,212,0.10) 55%, 
-                transparent 75%
-                )`,
-              filter: "blur(45px)",
-              transform: "translate(-50%, -50%)",
-              transition: "left 0.08s ease, top 0.08s ease",
-              mixBlendMode: "screen",
-            }}
-          />
+<div className="absolute inset-0 w-full h-full">
+  <LiquidEther
+    colors={["#5227FF", "#FF9FFC", "#B497CF"]}
+    mouseForce={20}
+    cursorSize={100}
+    isViscous
+    viscous={30}
+    iterationsViscous={32}
+    iterationsPoisson={32}
+    resolution={0.5}
+    isBounce={false}
+    autoDemo
+    autoSpeed={0.5}
+    autoIntensity={2.2}
+    takeoverDuration={0.25}
+    autoResumeDelay={3000}
+    autoRampDuration={0.6}
+    color0="#5227FF"
+    color1="#FF9FFC"
+    color2="#B497CF"
+  />
+</div>
 
           {/* Cursor Glow Layer 2 - body asap, organik (fuchsia) */}
           {/* <div

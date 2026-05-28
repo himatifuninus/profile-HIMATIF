@@ -14,7 +14,8 @@ const DataRegister = () => {
 
   useEffect(() => {
     fetchData();
-  }, []);
+  }, 
+);
 
   const fetchData = async () => {
     setLoading(true);
