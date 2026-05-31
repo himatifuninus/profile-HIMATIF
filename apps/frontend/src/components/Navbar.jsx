@@ -233,7 +233,7 @@ export default function Navbar() {
                       }`
                     }
                   >
-                    Home
+                    HOME
                   </NavLink>
                 </motion.div>
 
@@ -249,7 +249,7 @@ export default function Navbar() {
                       }`
                     }
                   >
-                    About
+                    ABOUT
                   </NavLink>
                 </motion.div>
 
@@ -265,7 +265,7 @@ export default function Navbar() {
                       }`
                     }
                   >
-                    Program
+                    PROGRAM
                   </NavLink>
                 </motion.div>
               </div>

@@ -16,7 +16,7 @@ export default function Makrab() {
       <div className="absolute inset-0 bg-black/65"></div>
 
       {/* CONTENT */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 mt-24 md:mt-20">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 pt-40">
         {/* JUDUL */}
         <motion.h2
           variants={fadeUp}
@@ -25,7 +25,7 @@ export default function Makrab() {
           transition={{ duration: 0.6 }}
           className="text-3xl md:text-4xl font-bold text-center text-white mb-6"
         >
-          SEMDIKTI (Seminar Diskusi Teknik Informatika)
+         HACKATHON & Informatika Coding Camp Season V
         </motion.h2>
 
         {/* DESKRIPSI */}
@@ -36,9 +36,11 @@ export default function Makrab() {
           transition={{ duration: 0.8 }}
           className="text-gray-200 text-center max-w-3xl mx-auto mb-12"
         >
-          SEMDIKTI merupakan ruang kebersamaan yang dirancang untuk mempererat
-          hubungan antar mahasiswa Teknik Informatika melalui kegiatan seminar
-          dan diskusi yang bersifat terbuka, hangat, dan inklusif.
+HACKATHON & Informatika Coding Camp Season V merupakan program pengembangan kompetensi yang diselenggarakan oleh HIMATIF 
+untuk meningkatkan kemampuan mahasiswa di bidang pemrograman, teknologi, dan inovasi digital. Melalui rangkaian pelatihan intensif, 
+mentoring, serta kompetisi Hackathon, peserta akan mendapatkan pengalaman nyata dalam merancang, 
+mengembangkan, dan mempresentasikan solusi berbasis teknologi. Kegiatan ini juga menjadi wadah untuk memperluas relasi, dan
+mengasah kemampuan kerja sama tim.
         </motion.p>
 
         {/* CARD */}
@@ -49,9 +51,16 @@ export default function Makrab() {
             initial="hidden"
             whileInView="visible"
             transition={{ duration: 0.6 }}
-            whileHover={{ y: -10, scale: 1.05 }}
+            whileHover={{
+                   y: -10,
+                   scale: 1.05,
+                   transition: {
+                   duration: 0.05,
+                   ease: "easeOut",
+                   },
+                  }}
             className="bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl p-6 text-white
-            transition-all duration-300 hover:bg-white/20 hover:shadow-2xl hover:shadow-cyan-500/30"
+             hover:bg-white/20 hover:shadow-2xl hover:shadow-cyan-500/30"
           >
             <h3 className="font-semibold text-lg mb-3">🎯 Tujuan</h3>
             <ul className="list-disc list-inside text-gray-200 space-y-2">
@@ -72,9 +81,16 @@ export default function Makrab() {
             initial="hidden"
             whileInView="visible"
             transition={{ duration: 0.6, delay: 0.1 }}
-            whileHover={{ y: -10, scale: 1.05 }}
+            whileHover={{
+                     y: -10,
+                    scale: 1.05,
+                    transition: {
+                    duration: 0.05,
+                    ease: "easeOut",
+                     },
+                    }}
             className="bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl p-6 text-white
-            transition-all duration-300 hover:bg-white/20 hover:shadow-2xl hover:shadow-cyan-500/30"
+             hover:bg-white/20 hover:shadow-2xl hover:shadow-cyan-500/30"
           >
             <h3 className="font-semibold text-lg mb-6">🗓 Timeline Kegiatan</h3>
 
@@ -111,9 +127,16 @@ export default function Makrab() {
             initial="hidden"
             whileInView="visible"
             transition={{ duration: 0.6, delay: 0.2 }}
-            whileHover={{ y: -10, scale: 1.05 }}
+            whileHover={{
+                 y: -10,
+                 scale: 1.05,
+                 transition: {
+                 duration: 0.05,
+                 ease: "easeOut",
+                 },
+                 }}
             className="bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl p-6 text-white
-            transition-all duration-300 hover:bg-white/20 hover:shadow-2xl hover:shadow-cyan-500/30"
+             hover:bg-white/20 hover:shadow-2xl hover:shadow-cyan-500/30"
           >
             <h3 className="font-semibold text-lg mb-3">🤝 Benefit</h3>
             <ul className="list-disc list-inside text-gray-200 space-y-2">
@@ -156,24 +179,44 @@ export default function Makrab() {
           </a>
 
           <a
-            href="https://drive.google.com/drive/folders/1BYMPweNf8nnCyP8Ax-mTuAT9oozjSx0L"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="
-            inline-flex
-            items-center
-            gap-0
-            ml-6
-            text-sm
-            text-gray-300
-            hover:text-white
-            transition-all
-            duration-300
-            hover:underline"
-          >
-            <span>Lihat Peraturan Lengkap</span>
-            <FiArrowUpRight className="text-[15px] translate-y-[2px]" />
-          </a>
+  href="https://drive.google.com/drive/folders/1BYMPweNf8nnCyP8Ax-mTuAT9oozjSx0L"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="
+    group
+    inline-flex
+    items-center
+    gap-2
+    px-6
+    py-3
+    rounded-full
+    bg-white/10
+    backdrop-blur-md
+    border
+    border-white/20
+    text-white
+    font-medium
+    hover:bg-white/20
+    hover:border-cyan-400/50
+    hover:shadow-lg
+    hover:shadow-cyan-500/20
+    transition-all
+    duration-300
+    hover:scale-105
+  "
+>
+  <span>Lihat Peraturan Lengkap</span>
+
+  <FiArrowUpRight
+    className="
+      text-[18px]
+      transition-transform
+      duration-300
+      group-hover:translate-x-1
+      group-hover:-translate-y-1
+    "
+  />
+</a>
         </motion.div>
       </div>
     </section>

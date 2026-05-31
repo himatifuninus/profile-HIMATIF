@@ -38,55 +38,65 @@ function ProtectedRoute({ children }) {
 function AnimatedRoutes({ setIsTransitioning }) {
   const location = useLocation();
   const isAdminPage = location.pathname.startsWith("/admin");
+  const [isFirstLoad, setIsFirstLoad] = useState(true);
 
   useEffect(() => {
     if (!isAdminPage) {
-      setIsTransitioning(true);
-
-      const timer = setTimeout(() => {
+      if (isFirstLoad) {
+        setIsFirstLoad(false);
         setIsTransitioning(false);
-      }, 1800); 
-
+        return;
+      }
+      setIsTransitioning(true);
+      const timer = setTimeout(() => setIsTransitioning(false), 1800);
       return () => clearTimeout(timer);
     } else {
       setIsTransitioning(false);
     }
-  }, [location.pathname, isAdminPage, setIsTransitioning]);
+  }, [location.pathname]);
 
   return (
-    <AnimatePresence mode="wait">
-      {!isAdminPage && <Transition key={"transition-" + location.pathname} />}
+    <>
+      {/* AnimatePresence KHUSUS untuk Transition overlay */}
+      <AnimatePresence mode="wait">
+        {!isAdminPage && !isFirstLoad && (
+          <Transition key={"transition-" + location.pathname} />
+        )}
+      </AnimatePresence>
 
-      <Routes location={location} key={location.pathname}>
-        {/* PUBLIC */}
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/makrab" element={<Makrab />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/data-register" element={<DataRegister />} />
-        <Route path="/congratulations" element={<Congratulations />} />
+      {/* AnimatePresence KHUSUS untuk page content */}
+      <AnimatePresence mode="wait">
+        <Routes location={location} key={location.pathname}>
+          {/* PUBLIC */}
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/makrab" element={<Makrab />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/data-register" element={<DataRegister />} />
+          <Route path="/congratulations" element={<Congratulations />} />
 
-        {/* STRUKTUR */}
-        <Route path="/angkatan-2526" element={<Angkatan2526 />} />
-        <Route path="/angkatan-2425" element={<Angkatan2425 />} />
-        <Route path="/angkatan-2324" element={<Angkatan2324 />} />
-        <Route path="/angkatan-2223" element={<Angkatan2223 />} />
+          {/* STRUKTUR */}
+          <Route path="/angkatan-2526" element={<Angkatan2526 />} />
+          <Route path="/angkatan-2425" element={<Angkatan2425 />} />
+          <Route path="/angkatan-2324" element={<Angkatan2324 />} />
+          <Route path="/angkatan-2223" element={<Angkatan2223 />} />
 
-        {/* ADMIN */}
-        <Route path="/admin/login" element={<Login />} />
-        <Route
-          path="/admin/dashboard"
-          element={
-            <ProtectedRoute>
-              <DashboardAdmin />
-            </ProtectedRoute>
-          }
-        />
+          {/* ADMIN */}
+          <Route path="/admin/login" element={<Login />} />
+          <Route
+            path="/admin/dashboard"
+            element={
+              <ProtectedRoute>
+                <DashboardAdmin />
+              </ProtectedRoute>
+            }
+          />
 
-        {/* fallback */}
-        <Route path="*" element={<Navigate to="/" replace />} />
-      </Routes>
-    </AnimatePresence>
+          {/* fallback */}
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
+      </AnimatePresence>
+    </>
   );
 }
 
@@ -99,7 +109,6 @@ function AppLayout() {
   return (
     <>
       {!isAdminPage && !isTransitioning && <Navbar />}
-
       <AnimatedRoutes setIsTransitioning={setIsTransitioning} />
     </>
   );
