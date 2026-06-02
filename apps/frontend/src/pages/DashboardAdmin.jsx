@@ -23,12 +23,18 @@ export default function DashboardAdmin() {
   };
 
   useEffect(() => {
-    getDataPendaftar();
+    getDataPendaftar(); // fetch pertama kali
+
+    const interval = setInterval(() => {
+      getDataPendaftar();
+    }, 5000); // polling setiap 5 detik
+
+    return () => clearInterval(interval); // cleanup saat unmount
   }, []);
 
   const handleLogout = () => {
     localStorage.removeItem("adminToken");
-    navigate("/admin/login");
+    navigate("/");
   };
 
   const handleDownloadPDF = () => {
@@ -54,9 +60,7 @@ export default function DashboardAdmin() {
         item.phone,
         item.angkatan,
         `${item.members?.length || 0} Orang`,
-        item.members
-          ?.map((m) => `${m.member_name} - ${m.nim}`)
-          .join("\n"),
+        item.members?.map((m) => `${m.member_name} - ${m.nim}`).join("\n"),
       ]),
     });
 

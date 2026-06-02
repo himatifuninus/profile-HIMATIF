@@ -146,16 +146,25 @@ export default function Navbar() {
                 className="
     border border-white
     text-white
-    font-bold
-    px-4 py-2
+    px-3 py-2
     rounded-lg
-    inline-block
+    inline-flex
+    items-center
+    justify-center
     transition-all duration-300
     hover:bg-white
     hover:text-black
   "
               >
-                LOGIN
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="22"
+                  height="22"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z" />
+                </svg>
               </NavLink>
             </div>
 
@@ -266,6 +275,22 @@ export default function Navbar() {
                     }
                   >
                     PROGRAM
+                  </NavLink>
+                </motion.div>
+
+                <motion.div variants={itemVariants}>
+                  <NavLink
+                    to="/admin/login"
+                    onClick={closeMenu}
+                    className={({ isActive }) =>
+                      `block py-2 text-sm font-semibold transition-colors duration-200 ${
+                        isActive
+                          ? "text-white"
+                          : "text-gray-300 hover:text-white"
+                      }`
+                    }
+                  >
+                    LOGIN
                   </NavLink>
                 </motion.div>
               </div>
