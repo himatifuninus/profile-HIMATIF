@@ -18,6 +18,7 @@ import Register from "./pages/Register";
 import DataRegister from "./pages/DataRegister";
 import Congratulations from "./pages/Congratulations";
 import DashboardAdmin from "./pages/DashboardAdmin";
+import Proker from "./pages/Proker";
 
 import Login from "./auth/Login";
 
@@ -41,19 +42,24 @@ function AnimatedRoutes({ setIsTransitioning }) {
   const [isFirstLoad, setIsFirstLoad] = useState(true);
 
   useEffect(() => {
-    if (!isAdminPage) {
-      if (isFirstLoad) {
-        setIsFirstLoad(false);
-        setIsTransitioning(false);
-        return;
-      }
-      setIsTransitioning(true);
-      const timer = setTimeout(() => setIsTransitioning(false), 1800);
-      return () => clearTimeout(timer);
-    } else {
+    if (isAdminPage) {
       setIsTransitioning(false);
+      return;
     }
-  }, [location.pathname]);
+
+    if (isFirstLoad) {
+      setIsFirstLoad(false);
+      return;
+    }
+
+    setIsTransitioning(true);
+
+    const timer = setTimeout(() => {
+      setIsTransitioning(false);
+    }, 1800);
+
+    return () => clearTimeout(timer);
+  }, [location.pathname, isAdminPage, isFirstLoad, setIsTransitioning]);
 
   return (
     <>
@@ -72,9 +78,11 @@ function AnimatedRoutes({ setIsTransitioning }) {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/makrab" element={<Makrab />} />
+          <Route path="/proker" element={<Proker />} />
           <Route path="/register" element={<Register />} />
           <Route path="/data-register" element={<DataRegister />} />
           <Route path="/congratulations" element={<Congratulations />} />
+
 
           {/* STRUKTUR */}
           <Route path="/angkatan-2526" element={<Angkatan2526 />} />

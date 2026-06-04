@@ -128,7 +128,7 @@ const About = () => {
       </div>
 
       {/* SEJARAH */}
-      <div className="relative z-10 min-h-screen flex items-center py-20">
+      <div className="relative z-10 min-h-screen flex items-center py-20 -mt-50">
         <div className="max-w-7xl mx-auto px-6 md:px-12 w-full">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             {/* LOGO */}
@@ -235,7 +235,7 @@ const About = () => {
       </div>
 
       {/* VISI MISI */}
-      <div className="relative z-10 py-20 px-6">
+      <div className="relative z-10 py-20 px-6 -mt-50">
         <div
           className="
             max-w-6xl
