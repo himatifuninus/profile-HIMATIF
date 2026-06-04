@@ -10,7 +10,7 @@ import { AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
 
 import Navbar from "./components/Navbar";
-
+import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Makrab from "./pages/Makrab";
@@ -57,6 +57,7 @@ function AnimatedRoutes({ setIsTransitioning }) {
 
   return (
     <>
+
       {/* AnimatePresence KHUSUS untuk Transition overlay */}
       <AnimatePresence mode="wait">
         {!isAdminPage && !isFirstLoad && (
@@ -110,6 +111,7 @@ function AppLayout() {
     <>
       {!isAdminPage && !isTransitioning && <Navbar />}
       <AnimatedRoutes setIsTransitioning={setIsTransitioning} />
+      {!isAdminPage && !isTransitioning && <Footer />}
     </>
   );
 }
